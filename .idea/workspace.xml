@@ -14,7 +14,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1d5j8iuq8JERecFizrECF7ohDvI" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -74,6 +78,14 @@
       <screen x="0" y="23" width="1440" height="808" />
     </state>
     <state x="459" y="287" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.808@0.23.1440.808" timestamp="1591908524360" />
+    <state x="629" y="338" key="Github.ShareDialog" timestamp="1592632279603">
+      <screen x="0" y="23" width="1440" height="808" />
+    </state>
+    <state x="629" y="338" key="Github.ShareDialog/0.23.1440.808@0.23.1440.808" timestamp="1592632279603" />
+    <state x="561" y="146" key="Github.UntrackedFilesDialog" timestamp="1592632319819">
+      <screen x="0" y="23" width="1440" height="808" />
+    </state>
+    <state x="561" y="146" key="Github.UntrackedFilesDialog/0.23.1440.808@0.23.1440.808" timestamp="1592632319819" />
     <state width="1037" height="146" key="GridCell.Tab.0.bottom" timestamp="1592625373562">
       <screen x="0" y="23" width="1440" height="808" />
     </state>
