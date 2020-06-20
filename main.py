@@ -21,7 +21,7 @@ background = pygame.image.load("room.png")
 #testSprite = makeSprite("q.gif")
 
 # title icon
-pygame.display.set_caption("Game")
+pygame.display.set_caption("The Adventure of A Magic Cat")
 
 # Player
 PlayerI = pygame.image.load("o.png")
@@ -34,7 +34,7 @@ p1 = 0
 p2 = 0
 count = {"a": '0', "b": '0', "c": '0', "d": '0'}
 
-notif = pygame.image.load("n.png")
+# notif = pygame.image.load("n.png")
 box1 = pygame.image.load("box.png")
 box2 = pygame.image.load("box.png")
 box3 = pygame.image.load("box.png")
@@ -82,6 +82,15 @@ def map1():
     global nt
     global nt1
     global background
+    global st
+    if st:
+        px = -500
+        py = -500
+        redraw()
+        pygame.time.delay(3000)
+        px = 400
+        py = 600
+        st = False
     if px > 1300:
         px = p1
         py = p2
@@ -156,13 +165,15 @@ def map2():
     if px < 20 and py < 50:
         px = 20
         py = 55
+        global t12
         t1 = True
-        t22 = True
+        t12 = True
         t21 = True
         pygame.display.update()
     if 350 > px > 300 and py > 575:
         px = 335
         py = 570
+
         t2 = True
         t22 = True
         t21 = True
@@ -170,22 +181,24 @@ def map2():
     if 650 > px > 600 and py < 40:
         px = 680
         py = 40
+        global t32
         t3 = True
-        t22 = True
+        t32 = True
         t21 = True
         pygame.display.update()
     if px > 1250 and py > 590:
         px = 1230
         py = 560
+        global t42
         t4 = True
-        t22 = True
+        t42 = True
         t21 = True
         pygame.display.update()
     if not f1(count, '0'):
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_RETURN:
                 global ma1
-                global fn
+                # global fn
                 global ma2
                 background = pygame.image.load("food.png")
                 t1 = False
@@ -215,7 +228,10 @@ def map3():
         background = pygame.image.load("cake.png")
         redraw()
         pygame.time.delay(3000)
-        bg = True
+        background = pygame.image.load("cake1.png")
+        redraw()
+        pygame.time.delay(3000)
+        background = pygame.image.load("end.png")
         redraw()
         pygame.time.delay(3000)
         running = False
@@ -223,18 +239,26 @@ def map3():
 # Loop
 walkCount = 0
 
-
+st = True
 
 def redraw():
     # screen background color rgb
     # background image
-    screen.blit(background, (0, 0))
+
     global nt
     global walkCount
     global p1
     global p2
     global count
+    global background
+    global st
+    global px
+    global py
+    screen.blit(background, (0, 0))
 
+    if st:
+
+        screen.blit(pygame.image.load("start.png"), (0, 0))
     p1 = px
     p2 = py
     if walkCount + 1 >= 27:
@@ -254,35 +278,35 @@ def redraw():
     else:
         player(px, py)
     if nt and nt1:
-        screen.blit(notif, (450, 300))
+        screen.blit(pygame.image.load("book.png"), (450, 300))
 
     if t1:
         screen.blit(box1, (17, 13))
-        if t22 and t21:
-            screen.blit(notif, (450, 300))
+        if t12 and t21:
+            screen.blit(pygame.image.load("egg.png"), (450, 300))
             count["a"] = '1'
 
     if t2:
         screen.blit(box2, (390, 700))
         if t22 and t21:
-            screen.blit(notif, (450, 300))
+            screen.blit(pygame.image.load("choc.png"), (450, 300))
             count["b"] = '1'
 
     if t3:
         screen.blit(box3, (603, 60))
-        if t22 and t21:
-            screen.blit(notif, (450, 300))
+        if t32 and t21:
+            screen.blit(pygame.image.load("flour.png"), (450, 300))
             count["c"] = '1'
 
     if t4:
         screen.blit(box4, (1340, 710))
-        if t22 and t21:
-
+        if t42 and t21:
+            screen.blit(pygame.image.load("milk.png"), (450, 300))
             count["d"] = '1'
-    if fn:
-        screen.blit(notif, (450, 300))
+    #if fn:
+        #screen.blit(pygame.image.load("milk.png"), (450, 300))
     if bg:
-        screen.blit(notif, (450, 300))
+        screen.blit(pygame.image.load("end.png"), (450, 300))
     pygame.display.update()
 
 
@@ -341,6 +365,10 @@ while running:
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_RETURN:
                 t21 = False
+                t12 = False
+                t22 = False
+                t32 = False
+                t42 = False
                 fn = False
                 nt = False
                 nt1 = False
